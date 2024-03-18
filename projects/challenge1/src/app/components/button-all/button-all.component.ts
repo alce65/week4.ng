@@ -1,16 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'isdi-button-all',
   standalone: true,
   imports: [],
-  template: `
-    <p>
-      button-all works!
-    </p>
-  `,
-  styles: ``
+  template: ` <button class="button button--select" (click)="selectAll()">
+    Select all
+  </button>`,
+  styles: ``,
 })
 export class ButtonAllComponent {
-
+  @Input() selectAll!: () => void;
 }
