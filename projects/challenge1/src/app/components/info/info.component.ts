@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'isdi-info',
   standalone: true,
   imports: [],
   template: `
-    <p>
-      info works!
+    <p class="info">
+      {{ selectedGentlemenLength }}
+      gentlemen pointing at you
     </p>
   `,
-  styles: ``
+  styles: ``,
 })
 export class InfoComponent {
-
+  @Input({ required: true }) selectedGentlemenLength!: number;
 }
