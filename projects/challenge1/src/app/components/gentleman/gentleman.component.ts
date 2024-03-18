@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Gentleman } from '../../model/gentleman';
 
 @Component({
@@ -12,10 +12,17 @@ import { Gentleman } from '../../model/gentleman';
   ],
 })
 export class GentlemanComponent {
-  @Input({
-    required: true,
-  })
-  gent!: Gentleman;
-  @Input({ required: true }) selectItem!: (gent: Gentleman) => void;
-  @Input({ required: true }) deleteItem!: (gent: Gentleman) => void;
+  @Input({ required: true }) gent!: Gentleman;
+  @Output() selectGentEvent: EventEmitter<Gentleman> =
+    new EventEmitter<Gentleman>();
+  @Output() deleteGentEvent: EventEmitter<Gentleman> =
+    new EventEmitter<Gentleman>();
+
+  selectItem() {
+    this.selectGentEvent.emit(this.gent);
+  }
+
+  deleteItem() {
+    this.deleteGentEvent.emit(this.gent);
+  }
 }

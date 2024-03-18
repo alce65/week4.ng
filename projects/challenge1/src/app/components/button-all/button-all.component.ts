@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'isdi-button-all',
@@ -10,5 +10,9 @@ import { Component, Input } from '@angular/core';
   styles: ``,
 })
 export class ButtonAllComponent {
-  @Input() selectAll!: () => void;
+  @Output() selectAllEvent: EventEmitter<void> = new EventEmitter<void>();
+
+  selectAll() {
+    this.selectAllEvent.emit();
+  }
 }

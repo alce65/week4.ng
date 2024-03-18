@@ -4,15 +4,15 @@
   </header>
   <section class="controls">
     <isdi-info [selectedGentlemenLength]="selectedGentlemen().length" />
-    <isdi-button-all [selectAll]="selectAll.bind(this)" />
+    <isdi-button-all (selectAllEvent)="selectAll()" />
   </section>
   <main class="main">
     <ul class="gentlemen">
       @for (item of gentlemen; track item.id) {
         <isdi-gentleman
           [gent]="item"
-          [deleteItem]="deleteItem"
-          [selectItem]="selectItem"
+          (deleteGentEvent)="deleteItem($event)"
+          (selectGentEvent)="selectItem($event)"
         />
       }
     </ul>
