@@ -18,9 +18,9 @@ export class GentlemanComponent {
   @Output() deleteGentEvent: EventEmitter<Gentleman> =
     new EventEmitter<Gentleman>();
 
-  selectItem() {
-    this.selectGentEvent.emit(this.gent);
-  }
+  // selectItem() {
+  //   this.selectGentEvent.emit(this.gent);
+  // }
 
   deleteItem() {
     this.deleteGentEvent.emit(this.gent);

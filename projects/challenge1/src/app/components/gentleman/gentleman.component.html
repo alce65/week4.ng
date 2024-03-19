@@ -27,8 +27,8 @@
   <i
     role="button"
     aria-disabled="true"
-    (click)="selectItem()"
-    (keyup)="selectItem()"
+    (click)="selectGentEvent.emit(gent)"
+    (keyup)="selectGentEvent.emit(gent)"
     class="icon gentleman__icon fas fa-check"
   >
   </i>

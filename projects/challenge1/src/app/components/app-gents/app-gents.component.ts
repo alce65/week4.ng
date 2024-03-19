@@ -32,6 +32,7 @@ export class AppGentsComponent {
       gentleman.selected = true;
     });
   }
+
   deleteItem = (deleteGent: Gentleman) => {
     this.gentlemen = this.gentlemen.filter(
       (gentleman) => gentleman.id !== deleteGent.id,
