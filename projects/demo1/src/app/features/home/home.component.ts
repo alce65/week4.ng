@@ -32,7 +32,7 @@ import { CountersListComponent } from './components/counters-list/counters-list.
   `,
   styles: ``,
 })
-export class HomeComponent {
+export default class HomeComponent {
   pages: string[] = ['Greetings', 'Counter'];
   currentPage: string = 'Greetings';
 

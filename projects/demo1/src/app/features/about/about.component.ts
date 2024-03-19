@@ -1,16 +1,14 @@
 import { Component } from '@angular/core';
+import { SampleNgComponent } from './sample-ng/sample-ng.component';
 
 @Component({
   selector: 'isdi-about',
   standalone: true,
-  imports: [],
+  imports: [SampleNgComponent],
   template: `
-    <p>
-      about works!
-    </p>
+    <h2>Acerca de nosotros</h2>
+    <isdi-sample-ng />
   `,
-  styles: ``
+  styles: ``,
 })
-export class AboutComponent {
-
-}
+export default class AboutComponent {}

@@ -4,13 +4,7 @@ import { Component } from '@angular/core';
   selector: 'isdi-todo',
   standalone: true,
   imports: [],
-  template: `
-    <p>
-      todo works!
-    </p>
-  `,
-  styles: ``
+  template: ` <p>todo works!</p> `,
+  styles: ``,
 })
-export class TodoComponent {
-
-}
+export default class TodoComponent {}

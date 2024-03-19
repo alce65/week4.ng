@@ -10,10 +10,20 @@ import { MenuOption } from './core/types/menu-option';
   selector: 'isdi-root',
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, FooterComponent, MenuComponent],
-  templateUrl: './app.component.html',
+  template: `
+    <isdi-header [title]="title">
+      <isdi-menu [items]="menuOptions" />
+    </isdi-header>
+    <main>
+      <router-outlet />
+    </main>
+    <isdi-footer [brand]="brand" />
+  `,
   styleUrl: './app.component.css',
 })
 export class AppComponent {
+  title = 'Aprendiendo Angular 17';
+  brand = 'ISDI-Coders';
   menuOptions: MenuOption[] = [];
 
   constructor() {
