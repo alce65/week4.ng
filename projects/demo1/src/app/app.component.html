@@ -1,22 +1,7 @@
+<isdi-header>
+  <isdi-menu [items]="menuOptions" />
+</isdi-header>
 <main>
-  <p>App component</p>
-
-  <nav>
-    @for (page of pages; track $index) {
-      <button (click)="selectPage(page)">{{ page }}</button>
-    }
-  </nav>
-
-  <nav>
-    @for (page of pages; track $index) {
-      <button (click)="currentPage = page">{{ page }}</button>
-    }
-  </nav>
-
-  @if (currentPage === "Home") {
-    <isdi-home />
-  } @else {
-    <isdi-sample-ng />
-  }
+  <router-outlet />
 </main>
-<router-outlet />
+<isdi-footer />

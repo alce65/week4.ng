@@ -1,20 +1,27 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SampleNgComponent } from './shared/sample-ng/sample-ng.component';
-import { HomeComponent } from './features/home/home.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { MenuComponent } from './shared/menu/menu.component';
+import { routes } from './app.routes';
+import { MenuOption } from './core/types/menu-option';
 
 @Component({
   selector: 'isdi-root',
   standalone: true,
-  imports: [RouterOutlet, SampleNgComponent, HomeComponent],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, MenuComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  pages: string[] = ['Home', 'Sample'];
-  currentPage: string = 'Home';
+  menuOptions: MenuOption[] = [];
 
-  selectPage(page: string) {
-    this.currentPage = page;
+  constructor() {
+    this.menuOptions = routes
+      .filter((route) => route.path !== '**' && route.path !== '')
+      .map((route) => ({
+        title: route.title as string,
+        path: route.path as string,
+      }));
   }
 }
