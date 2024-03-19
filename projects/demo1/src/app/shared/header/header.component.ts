@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'isdi-header',
@@ -21,5 +21,5 @@ import { Component } from '@angular/core';
   `,
 })
 export class HeaderComponent {
-  title = 'Aprendiendo Angular 17';
+  @Input({ required: true }) title = '';
 }
