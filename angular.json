@@ -91,26 +91,26 @@
         }
       }
     },
-    "challenge1": {
+    "challenges": {
       "projectType": "application",
       "schematics": {},
-      "root": "projects/challenge1",
-      "sourceRoot": "projects/challenge1/src",
+      "root": "projects/challenges",
+      "sourceRoot": "projects/challenges/src",
       "prefix": "isdi",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/challenge1",
-            "index": "projects/challenge1/src/index.html",
-            "browser": "projects/challenge1/src/main.ts",
+            "outputPath": "dist/challenges",
+            "index": "projects/challenges/src/index.html",
+            "browser": "projects/challenges/src/main.ts",
             "polyfills": ["zone.js"],
-            "tsConfig": "projects/challenge1/tsconfig.app.json",
+            "tsConfig": "projects/challenges/tsconfig.app.json",
             "assets": [
-              "projects/challenge1/src/favicon.png",
-              "projects/challenge1/src/assets"
+              "projects/challenges/src/favicon.png",
+              "projects/challenges/src/assets"
             ],
-            "styles": ["projects/challenge1/src/styles.css"],
+            "styles": ["projects/challenges/src/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -141,10 +141,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "challenge1:build:production"
+              "buildTarget": "challenges:build:production"
             },
             "development": {
-              "buildTarget": "challenge1:build:development"
+              "buildTarget": "challenges:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -152,19 +152,19 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "challenge1:build"
+            "buildTarget": "challenges:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "polyfills": ["zone.js", "zone.js/testing"],
-            "tsConfig": "projects/challenge1/tsconfig.spec.json",
+            "tsConfig": "projects/challenges/tsconfig.spec.json",
             "assets": [
-              "projects/challenge1/src/favicon.ico",
-              "projects/challenge1/src/assets"
+              "projects/challenges/src/favicon.ico",
+              "projects/challenges/src/assets"
             ],
-            "styles": ["projects/challenge1/src/styles.css"],
+            "styles": ["projects/challenges/src/styles.css"],
             "scripts": []
           }
         },
@@ -172,8 +172,8 @@
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "projects/challenge1/**/*.ts",
-              "projects/challenge1/**/*.html"
+              "projects/challenges/**/*.ts",
+              "projects/challenges/**/*.html"
             ]
           }
         }

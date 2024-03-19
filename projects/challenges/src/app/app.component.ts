@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { AppGentsComponent } from './components/app-gents/app-gents.component';
+import { AppGentsComponent } from './challenge1/components/app-gents/app-gents.component';
 
 @Component({
   selector: 'isdi-root',
