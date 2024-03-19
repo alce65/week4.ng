@@ -1,0 +1,72 @@
+<p>dd-register works!</p>
+<form [formGroup]="formGroup">
+  <fieldset>
+    <legend>Datos personales</legend>
+    <div class="control">
+      <label>
+        <span>Nombre:</span>
+        <input type="text" formControlName="name" />
+      </label>
+    </div>
+    <div class="control">
+      <label>
+        <span>Correo:</span>
+        <input type="email" formControlName="email" />
+      </label>
+    </div>
+    <div class="control">
+      <label>
+        <span>Contraseña:</span>
+        <input type="password" formControlName="password" />
+      </label>
+    </div>
+    <div class="control">
+      <label>
+        <span>Fecha de nacimiento:</span>
+        <input type="date" name="date" />
+      </label>
+    </div>
+    <div class="control">
+      <label>
+        <span>Comentarios:</span>
+        <textarea name="comentarios"></textarea>
+      </label>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Opciones</legend>
+    <div class="control">
+      <label>
+        <span>Selecciona un:</span>
+        <select name="select">
+          <option value="1">Angular</option>
+          <option value="2">React</option>
+          <option value="3">Node</option>
+        </select>
+      </label>
+    </div>
+    <fieldset>
+      <legend>Selecciona una sede:</legend>
+      <div class="control">
+        <label> <input type="radio" name="radio" value="1" /> Madrid </label>
+        <label> <input type="radio" name="radio" value="2" /> Cádiz </label>
+        <label> <input type="radio" name="radio" value="3" /> Gijón </label>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Términos</legend>
+      <div class="control">
+        <label>
+          <input type="checkbox" name="checkbox" value="1" />
+          Estoy de acuerdo ....
+        </label>
+      </div>
+    </fieldset>
+  </fieldset>
+  <fieldset>
+    <button type="submit">Enviar</button>
+    <button type="reset">Limpiar</button>
+  </fieldset>
+</form>
+
+{{ formGroup.value | json }}

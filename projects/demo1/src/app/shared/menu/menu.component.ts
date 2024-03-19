@@ -21,13 +21,13 @@ import { RouterModule } from '@angular/router';
     nav {
       background-color: #f2f2f2;
       padding: 10px;
-      width: 200px;
     }
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
       display: flex;
+      gap: 1rem;
       justify-content: space-around;
     }
     li {

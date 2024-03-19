@@ -1,0 +1,87 @@
+<p>td-register works!</p>
+<form #form #ngForm="ngForm" (ngSubmit)="onSubmit($event)">
+  <fieldset>
+    <legend>Datos personales</legend>
+    <div class="control">
+      <label>
+        <span>Nombre:</span>
+        <input type="text" name="name" ngModel required minlength="3" />
+      </label>
+      @if (
+        ngForm.form.controls["name"].touched &&
+        ngForm.form.controls["name"].invalid
+      ) {
+        @if (ngForm.form.controls["name"].errors?.["required"]) {
+          <p>El nombre es required</p>
+        }
+        @if (ngForm.form.controls["name"].errors?.["minlength"]) {
+          <p>El nombre es demasiado corto</p>
+        }
+      }
+    </div>
+    <div class="control">
+      <label>
+        <span>Correo:</span>
+        <input type="email" name="email" ngModel />
+      </label>
+    </div>
+    <div class="control">
+      <label>
+        <span>Contraseña:</span>
+        <input type="password" name="password" ngModel />
+      </label>
+    </div>
+    <div class="control">
+      <label>
+        <span>Fecha de nacimiento:</span>
+        <input type="date" name="date" ngModel />
+      </label>
+    </div>
+    <div class="control">
+      <label>
+        <span>Comentarios:</span>
+        <textarea name="comments" ngModel></textarea>
+      </label>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Opciones</legend>
+    <div class="control">
+      <label>
+        <span>Selecciona un curso:</span>
+        <select name="course" ngModel>
+          <option value="C1_A">Angular</option>
+          <option value="C2_R">React</option>
+          <option value="C3_N">Node</option>
+        </select>
+      </label>
+    </div>
+    <fieldset>
+      <legend>Selecciona una sede:</legend>
+      <div class="control">
+        <label>
+          <input type="radio" name="place" value="MD" ngModel /> Madrid
+        </label>
+        <label>
+          <input type="radio" name="place" value="CA" ngModel /> Cádiz
+        </label>
+        <label>
+          <input type="radio" name="place" value="GJ" ngModel /> Gijón
+        </label>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Términos</legend>
+      <div class="control">
+        <label>
+          <input type="checkbox" name="terms" value="1" ngModel />
+          Estoy de acuerdo ....
+        </label>
+      </div>
+    </fieldset>
+  </fieldset>
+  <fieldset>
+    <button type="submit" [disabled]="ngForm.invalid">Enviar</button>
+    <button type="reset">Limpiar</button>
+  </fieldset>
+</form>
