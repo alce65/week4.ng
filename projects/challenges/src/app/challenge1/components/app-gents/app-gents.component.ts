@@ -12,7 +12,7 @@ import { GentlemanComponent } from '../gentleman/gentleman.component';
   templateUrl: './app-gents.component.html',
   styleUrl: './app-gents.component.css',
 })
-export class AppGentsComponent {
+export default class AppGentsComponent {
   title = 'The pointing gentlemen';
   gentlemen: Gentleman[] = [];
   selectedGent: Gentleman[] = [];

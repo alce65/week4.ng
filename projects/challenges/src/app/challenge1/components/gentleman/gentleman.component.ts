@@ -7,8 +7,8 @@ import { Gentleman } from '../../model/gentleman';
   imports: [],
   templateUrl: './gentleman.component.html',
   styleUrls: [
-    './gentleman.component.css',
     '../app-gents/app-gents.component.css',
+    './gentleman.component.css',
   ],
 })
 export class GentlemanComponent {
