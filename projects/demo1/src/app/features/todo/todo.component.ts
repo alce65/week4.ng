@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { TodoListComponent } from './componets/todo-list/todo-list.component';
 
 @Component({
   selector: 'isdi-todo',
   standalone: true,
-  imports: [],
-  template: ` <p>todo works!</p> `,
+  imports: [TodoListComponent],
+  template: ` <p>todo works!</p>
+    <isdi-todo-list />`,
   styles: ``,
 })
 export default class TodoComponent {}
