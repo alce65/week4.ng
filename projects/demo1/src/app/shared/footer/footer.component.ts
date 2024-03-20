@@ -1,12 +1,14 @@
+import { DatePipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'isdi-footer',
   standalone: true,
-  imports: [],
+  imports: [DatePipe],
   template: `
     <footer>
       <address>{{ brand }}</address>
+      <p>{{ toDay | date: 'fullDate' }}</p>
     </footer>
   `,
   styles: `
@@ -20,4 +22,5 @@ import { Component, Input } from '@angular/core';
 })
 export class FooterComponent {
   @Input({ required: true }) brand: string = '';
+  toDay = new Date();
 }
