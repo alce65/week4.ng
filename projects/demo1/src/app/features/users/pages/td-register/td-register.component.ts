@@ -32,4 +32,8 @@ export default class TdRegisterComponent implements OnInit {
     console.log(ev);
     console.log(this.ngForm.value);
   }
+
+  foo() {
+    console.log('foo');
+  }
 }

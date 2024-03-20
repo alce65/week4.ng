@@ -8,7 +8,8 @@
     "start:challenges": "ng serve --port 4600 --project challenges",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "ng test --code-coverage --browsers=ChromeHeadless --project demo1",
+    "test:prod": "ng test --code-coverage --no-watch --browsers=ChromeHeadless",
     "lint": "ng lint"
   },
   "private": true,
@@ -44,6 +45,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "karma-mocha-reporter": "^2.2.5",
     "prettier": "^3.2.5",
     "typescript": "~5.4.2"
   }

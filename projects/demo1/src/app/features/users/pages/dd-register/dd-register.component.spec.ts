@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DdRegisterComponent } from './dd-register.component';
+import DdRegisterComponent from './dd-register.component';
 
 describe('DdRegisterComponent', () => {
   let component: DdRegisterComponent;
@@ -8,10 +8,9 @@ describe('DdRegisterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DdRegisterComponent]
-    })
-    .compileComponents();
-    
+      imports: [DdRegisterComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(DdRegisterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

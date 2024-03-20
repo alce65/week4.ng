@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LogoComponent } from './logo.component';
-import { LogoOptions } from '../../../interfaces/logo.options';
+import { LogoComponent, LogoOptions } from './logo.component';
+
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
