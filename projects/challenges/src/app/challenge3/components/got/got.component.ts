@@ -3,22 +3,24 @@ import { Character } from '../../model/character';
 import { CardComponent } from '../card/card.component';
 import { getCharacters } from '../../data';
 import { TalkComponent } from '../talk/talk.component';
+import { CardBackComponent } from '../card-back/card-back.component';
 
 @Component({
   selector: 'isdi-got',
   standalone: true,
-  imports: [CardComponent, TalkComponent],
+  imports: [CardComponent, CardBackComponent, TalkComponent],
   template: `
     <div class="app container">
       <h1>Game of Thrones</h1>
       <ul class="characters-list row list-unstyled">
         @for (item of characters; track $index) {
           <li class="character col">
-            <isdi-card
+            <isdi-card [item]="item"></isdi-card>
+            <isdi-card-back
               [item]="item"
               (killEvent)="onKill($event)"
               (talkEvent)="onTalk($event)"
-            ></isdi-card>
+            />
           </li>
         }
       </ul>

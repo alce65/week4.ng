@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Character } from '../../model/character';
 
 @Component({
@@ -31,38 +31,6 @@ import { Character } from '../../model/character';
           </li>
         </ul>
       </div>
-      <div class="character__overlay">
-        <ul class="list-unstyled">
-          @switch (item.type) {
-            @case ('king') {
-              <li>Años de reinado: {{ item.kingdomYears }}</li>
-            }
-            @case ('fighter') {
-              <li>Arma: {{ item.weapon }}</li>
-              <li>Destreza: {{ item.skillsRange }}</li>
-            }
-            @case ('counselor') {
-              <li>Asesora a: {{ item.lord?.name }}</li>
-            }
-            @case ('squire') {
-              <li>Peloteo: {{ item.serverRange }}</li>
-              <li>Sirve a: {{ item.master?.name }}</li>
-            }
-          }
-        </ul>
-        <div class="character__actions">
-          <button class="character__action btn talk" (click)="sendTalk()">
-            habla
-          </button>
-          <button
-            class="character__action btn kill"
-            (click)="sendKill()"
-            [disabled]="!item.isAlive"
-          >
-            muere
-          </button>
-        </div>
-      </div>
     </div>
     <i class="emoji">{{ emojis[item.type] }} </i>
   `,
@@ -91,47 +59,6 @@ import { Character } from '../../model/character';
       height: 60px;
     }
 
-    .character__overlay {
-      border-radius: 0.25rem;
-      position: absolute;
-      padding: 25px 15px;
-      top: -100%;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: rgba(0, 0, 0, 0.9);
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.2s;
-    }
-    :host:nth-child(even) .character__overlay {
-      top: 100%;
-    }
-
-    :host:hover .character__overlay {
-      opacity: 1;
-      pointer-events: all;
-      top: 0;
-    }
-
-    :host:hover .character__actions {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      height: 90px;
-    }
-
-    .character__action {
-      background-color: #67331e;
-      color: #fff;
-      width: 80%;
-    }
-
     .emoji {
       font-style: normal;
       position: absolute;
@@ -142,8 +69,6 @@ import { Character } from '../../model/character';
 })
 export class CardComponent {
   @Input({ required: true }) item!: Character;
-  @Output() talkEvent: EventEmitter<Character> = new EventEmitter();
-  @Output() killEvent: EventEmitter<Character> = new EventEmitter();
 
   emojis: { [key: string]: string } = {
     king: '👑',
@@ -151,11 +76,4 @@ export class CardComponent {
     counselor: '📜',
     squire: '🛡️',
   };
-
-  sendTalk() {
-    this.talkEvent.emit(this.item);
-  }
-  sendKill() {
-    this.killEvent.emit(this.item);
-  }
 }
