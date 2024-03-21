@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TodoListComponent } from './componets/todo-list/todo-list.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
 
 @Component({
   selector: 'isdi-todo',
@@ -7,6 +7,7 @@ import { TodoListComponent } from './componets/todo-list/todo-list.component';
   imports: [TodoListComponent],
   template: ` <p>todo works!</p>
     <isdi-todo-list />`,
+
   styles: ``,
 })
 export default class TodoComponent {}
