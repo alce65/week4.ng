@@ -20,6 +20,20 @@ export const routes: Routes = [
     ],
     loadComponent: () => import('./features/todo/todo.component'),
   },
+
+  {
+    path: 'notes',
+    title: 'Notas',
+    providers: [
+      StorageService,
+      {
+        provide: 'STORE_NAME',
+        useValue: 'notes',
+      },
+    ],
+    loadComponent: () => import('./features/notes/notes.component'),
+  },
+
   {
     path: 'users',
     title: 'Usuarios',
