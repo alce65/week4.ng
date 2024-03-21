@@ -6,7 +6,7 @@ import { Task } from '../../../../core/models/task';
   selector: 'isdi-todo-card',
   standalone: true,
   imports: [FormsModule],
-  template: ` <li>
+  template: `
     <input type="checkbox" [(ngModel)]="item.isDone" (change)="sendUpdate()" />
     <span>{{ item.title }}</span>
     <span>{{ item.owner }}</span>
@@ -14,9 +14,9 @@ import { Task } from '../../../../core/models/task';
       <button type="button" (click)="sendDelete()">🗑️</button>
       <button type="button">✏️</button>
     </span>
-  </li>`,
+  `,
   styles: `
-    li {
+    :host {
       padding: 10px;
       border-bottom: 1px solid #ccc;
       width: 80%;
