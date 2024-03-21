@@ -39,7 +39,6 @@ import { Character } from '../../model/character';
       flex-basis: auto;
       flex-grow: 0;
       display: block;
-      position: relative;
       border: none;
       background-color: #331c0e;
       color: #fff;
@@ -62,8 +61,8 @@ import { Character } from '../../model/character';
     .emoji {
       font-style: normal;
       position: absolute;
-      right: 5px;
-      top: 5px;
+      right: 1rem;
+      top: 1rem;
     }
   `,
 })

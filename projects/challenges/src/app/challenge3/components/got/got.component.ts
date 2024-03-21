@@ -42,6 +42,9 @@ import { CardBackComponent } from '../card-back/card-back.component';
       align-items: center;
       justify-content: space-between;
     }
+    .character {
+      position: relative;
+    }
   `,
 })
 export class GotComponent implements OnInit {
