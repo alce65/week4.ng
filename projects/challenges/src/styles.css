@@ -27,3 +27,11 @@ h1,
 h2 {
   margin: 0;
 }
+
+.message {
+  line-height: 50px;
+}
+
+.off {
+  visibility: hidden !important;
+}
