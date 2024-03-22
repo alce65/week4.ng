@@ -1,13 +1,13 @@
-import { Component, ElementRef, inject, ViewChild } from '@angular/core';
-import { Note } from '../../../../core/models/note';
+import { Component, inject } from '@angular/core';
 import { NotesCardComponent } from '../notes-card/notes-card.component';
 import { NotesAddComponent } from '../notes-add/notes-add.component';
 import { NotesStoreService } from '../../services/store.service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'isdi-notes-list',
   standalone: true,
-  imports: [NotesCardComponent, NotesAddComponent],
+  imports: [NotesCardComponent, NotesAddComponent, AsyncPipe],
   providers: [
     NotesStoreService,
     {
@@ -17,18 +17,20 @@ import { NotesStoreService } from '../../services/store.service';
   ],
 
   template: `
-    <details #details>
-      <summary>Añadir nota</summary>
-      <isdi-notes-add (addEvent)="onAdd($event)" />
-    </details>
+    @if ((storeSrv.getState() | async)!.notes; as notes) {
+      <details #details>
+        <summary>Añadir nota número {{ notes.length + 1 }}</summary>
+        <isdi-notes-add [details]="details" />
+      </details>
 
-    <ul>
-      @for (item of notes; track item.id) {
-        <li>
-          <isdi-notes-card [item]="item" />
-        </li>
-      }
-    </ul>
+      <ul>
+        @for (item of notes; track item.id) {
+          <li>
+            <isdi-notes-card [item]="item" />
+          </li>
+        }
+      </ul>
+    }
   `,
   styles: `
     ul {
@@ -38,21 +40,14 @@ import { NotesStoreService } from '../../services/store.service';
   `,
 })
 export class NotesListComponent {
-  notes: Note[] = [];
-  @ViewChild('details', { static: true }) details!: ElementRef;
-
+  // notes: Note[] = [];
   storeSrv = inject(NotesStoreService);
 
   constructor() {
-    this.storeSrv.getState().subscribe((state) => {
-      this.notes = state.notas;
-    });
-
+    // this.storeSrv.getState().subscribe((state) => {
+    //   this.notes = state.notes;
+    // });
     this.storeSrv.loadNotes();
-  }
-
-  onAdd(note: Note) {
-    this.details.nativeElement.open = false;
-    this.storeSrv.addNota(note);
+    // ;
   }
 }

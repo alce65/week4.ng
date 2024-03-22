@@ -1,56 +1,100 @@
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Note } from '../../../core/models/note';
-import { getNotes } from '../../../core/data';
 import { StorageService } from '../../../core/services/storage.service';
+import { NotesApiRepoService } from './api.repo.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
-type NotasState = {
-  notas: Note[];
+type NotesState = {
+  notes: Note[];
+  error: HttpErrorResponse | null;
 };
 
 @Injectable({
   providedIn: 'root',
 })
 export class NotesStoreService {
-  private state$: BehaviorSubject<NotasState>;
+  private state$: BehaviorSubject<NotesState>;
   public storageSrv = inject(StorageService<Note>);
+  private apiRepoSrv = inject(NotesApiRepoService);
 
   constructor() {
     this.state$ = new BehaviorSubject({
-      notas: [] as Note[],
+      notes: [] as Note[],
+      error: null as HttpErrorResponse | null,
     });
   }
 
-  getState(): Observable<NotasState> {
+  getState(): Observable<NotesState> {
     return this.state$.asObservable();
   }
 
   loadNotes(): void {
-    const notes = this.storageSrv.getStorage();
-    if (notes.length === 0) {
-      getNotes().then((notes) => {
-        this.storageSrv.setStorage(notes);
-      });
-    }
-    this.state$.next({ notas: notes });
+    // const notes = this.storageSrv.getStorage();
+    // if (notes.length === 0) {
+    //   getNotes().then((notes) => {
+    //     this.storageSrv.setStorage(notes);
+    //   });
+    // }
+
+    this.apiRepoSrv.getAll().subscribe({
+      next: (notes) => {
+        const state: NotesState = {
+          ...this.state$.value,
+          notes: notes,
+        };
+        this.state$.next(state);
+      },
+      error: (error: HttpErrorResponse) => {
+        const state: NotesState = {
+          ...this.state$.value,
+          error: error,
+        };
+        this.state$.next(state);
+      },
+    });
   }
 
   addNota(note: Note): void {
-    this.state$.next({ notas: [...this.state$.value.notas, note] });
-    this.storageSrv.setStorage(this.state$.value.notas);
+    this.apiRepoSrv.add(note).subscribe({
+      next: (note) => {
+        const state: NotesState = {
+          ...this.state$.value,
+          notes: [...this.state$.value.notes, note],
+        };
+        this.state$.next(state);
+      },
+      error: () => {},
+    });
   }
 
   removeNota(id: Note['id']): void {
-    this.state$.next({
-      notas: this.state$.value.notas.filter((note) => note.id !== id),
+    this.apiRepoSrv.delete(id).subscribe({
+      next: ({ id }) => {
+        const state: NotesState = {
+          ...this.state$.value,
+          notes: this.state$.value.notes.filter((note) => note.id !== id),
+        };
+
+        this.state$.next(state);
+      },
+      error: () => {},
     });
-    this.storageSrv.setStorage(this.state$.value.notas);
   }
 
   updateNota(note: Note): void {
-    const notes = this.state$.value.notas;
-    const newNotes = notes.map((t) => (t.id === note.id ? note : t));
-    this.state$.next({ notas: newNotes });
-    this.storageSrv.setStorage(newNotes);
+    this.apiRepoSrv.update(note).subscribe({
+      next: (note) => {
+        const notes = this.state$.value.notes;
+        const newNotes = notes.map((t) => (t.id === note.id ? note : t));
+        const state: NotesState = {
+          ...this.state$.value,
+          notes: newNotes,
+        };
+
+        this.state$.next(state);
+      },
+      error: () => {},
+    });
   }
 }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Note } from '../../../../core/models/note';
 import { NotesStoreService } from '../../services/store.service';
@@ -16,7 +16,7 @@ import { NotesStoreService } from '../../services/store.service';
     <span>{{ item.title }}</span>
     <span>{{ item.author }}</span>
     <span>
-      <button type="button" (click)="sendDelete()">🗑️</button>
+      <button type="button" (click)="storeSrv.removeNota(item.id)">🗑️</button>
       <button type="button">✏️</button>
     </span>
   `,
@@ -38,16 +38,10 @@ import { NotesStoreService } from '../../services/store.service';
 })
 export class NotesCardComponent {
   @Input({ required: true }) item!: Note;
-  @Output() deleteEvent = new EventEmitter<Note['id']>();
-  @Output() updateEvent = new EventEmitter<Note>();
 
   storeSrv = inject(NotesStoreService);
 
   sendUpdate() {
     this.storeSrv.updateNota(this.item);
-  }
-
-  sendDelete() {
-    this.storeSrv.removeNota(this.item.id);
   }
 }

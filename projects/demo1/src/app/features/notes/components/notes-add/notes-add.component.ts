@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Note } from '../../../../core/models/note';
+import { NotesStoreService } from '../../services/store.service';
 
 @Component({
   selector: 'isdi-notes-add',
@@ -33,8 +34,10 @@ import { Note } from '../../../../core/models/note';
   `,
 })
 export class NotesAddComponent {
-  @Output() addEvent: EventEmitter<Note> = new EventEmitter<Note>();
+  @Input() details!: HTMLDetailsElement;
   private fb = inject(FormBuilder);
+  private storeSrv = inject(NotesStoreService);
+
   form: FormGroup = this.fb.group({
     title: ['', [Validators.required, Validators.minLength(5)]],
     author: [''],
@@ -46,7 +49,9 @@ export class NotesAddComponent {
       isImportant: false,
       ...this.form.value,
     };
-    this.addEvent.emit(newNote);
+
+    this.storeSrv.addNota(newNote);
     this.form.reset();
+    this.details.open = false;
   }
 }
