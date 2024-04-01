@@ -40,6 +40,7 @@ export default class AppGentsComponent {
   };
 
   selectItem = (gentleman: Gentleman) => {
+    // Old solution
     // gentleman.selected = !gentleman.selected;
     this.gentlemen = this.gentlemen.map((gent) =>
       gent.id === gentleman.id ? { ...gent, selected: !gent.selected } : gent,
