@@ -11,7 +11,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --code-coverage --browsers=ChromeHeadless --project demo1",
-    "test:prod": "ng test --code-coverage --no-watch --browsers=ChromeHeadless",
+    "test:prod:demo": "ng test --code-coverage --no-watch --browsers=ChromeHeadless --project demo1",
     "lint": "ng lint"
   },
   "private": true,
