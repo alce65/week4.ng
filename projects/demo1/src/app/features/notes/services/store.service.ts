@@ -1,7 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Note } from '../../../core/models/note';
-import { StorageService } from '../../../core/services/storage.service';
 import { NotesApiRepoService } from './api.repo.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -15,8 +14,8 @@ type NotesState = {
 })
 export class NotesStoreService {
   private state$: BehaviorSubject<NotesState>;
-  public storageSrv = inject(StorageService<Note>);
-  private apiRepoSrv = inject(NotesApiRepoService);
+  // public storageSrv = inject(StorageService<Note>);
+  public apiRepoSrv = inject(NotesApiRepoService);
 
   constructor() {
     this.state$ = new BehaviorSubject({

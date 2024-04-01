@@ -13,7 +13,7 @@ export class NotesApiRepoService {
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<Note[]> {
-    return this.http.get(this.urlNotes) as Observable<Note[]>;
+    return this.http.get(this.urlNotes, {}) as Observable<Note[]>;
   }
 
   add(note: Note): Observable<Note> {
