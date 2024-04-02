@@ -1,28 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NotesListComponent } from './notes-list.component';
-import { StorageService } from '../../../../core/services/storage.service';
+import { NotesApiRepoService } from '../../services/api.repo.service';
+import { provideHttpClient } from '@angular/common/http';
 
-fdescribe('NotesListComponent', () => {
+describe('NotesListComponent', () => {
   let component: NotesListComponent;
   let fixture: ComponentFixture<NotesListComponent>;
-
-  // jasmine.createSpy()
-  jasmine.createSpyObj(StorageService, [
-    {
-      getStorage: [],
-      setStorage: undefined,
-    },
-  ]);
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [NotesListComponent],
-      providers: [
-        {
-          provide: 'STORE_NAME',
-          useValue: 'test',
-        },
-      ],
+      providers: [NotesApiRepoService, provideHttpClient()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(NotesListComponent);
