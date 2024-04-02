@@ -10,10 +10,10 @@ import { AsyncPipe } from '@angular/common';
   imports: [NotesCardComponent, NotesAddComponent, AsyncPipe],
   providers: [
     NotesStoreService,
-    {
-      provide: 'NOTES_STORE',
-      useValue: 'Notes',
-    },
+    // {
+    //   provide: 'NOTES_STORE',
+    //   useValue: 'Notes',
+    // },
   ],
 
   template: `

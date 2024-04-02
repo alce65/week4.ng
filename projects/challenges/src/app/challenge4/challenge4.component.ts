@@ -33,7 +33,7 @@ import { ActionsComponent } from './components/actions/actions.component';
     }
     .phone {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 300px 200px;
     }
   `,
 })

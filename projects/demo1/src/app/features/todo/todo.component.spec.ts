@@ -9,6 +9,12 @@ describe('TodoComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [TodoComponent],
+      providers: [
+        {
+          provide: 'STORE_NAME',
+          useValue: 'test',
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TodoComponent);

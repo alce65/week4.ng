@@ -6,19 +6,20 @@ import { KeyComponent } from '../key/key.component';
   standalone: true,
   imports: [KeyComponent],
   template: `
-    <div class="keyboard-container">
-      <ol class="keyboard">
-        @for (key of keys; track $index) {
-          <li>
-            <isdi-key [label]="key" />
-          </li>
-        }
-      </ol>
-    </div>
+    <ol class="keyboard">
+      @for (key of keys; track $index) {
+        <li>
+          <isdi-key [label]="key" />
+        </li>
+      }
+    </ol>
   `,
   styles: `
+    :host {
+      display: block;
+    }
     .keyboard {
-      width: 213px;
+      width: 100%;
       display: flex;
       flex-wrap: wrap;
     }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PhoneService } from '../../state/phone.service';
 
 @Component({
@@ -9,16 +9,21 @@ import { PhoneService } from '../../state/phone.service';
     <button
       [class]="label.toLowerCase()"
       [class.active]="isActive"
-      [disabled]="!isActive"
+      [disabled]="isDisabled"
+      [hidden]="!isActive"
       (click)="onClick()"
     >
       {{ label }}
     </button>
   `,
   styles: `
+    :host {
+      display: block;
+    }
     button {
       border-radius: 10px;
       padding: 20px;
+      width: 6rem;
       text-decoration: none;
       color: inherit;
       cursor: default;
@@ -26,11 +31,11 @@ import { PhoneService } from '../../state/phone.service';
       transform: scale(0.9);
       transition: all 0.2s ease-out;
     }
-    .active {
+    .active:not(:disabled) {
       cursor: pointer;
       opacity: 1;
     }
-    a.active:hover {
+    .active:not(:disabled):hover {
       transform: scale(1);
     }
     .call {
@@ -41,15 +46,19 @@ import { PhoneService } from '../../state/phone.service';
     }
   `,
 })
-export class ActionComponent {
+export class ActionComponent implements OnInit {
   @Input({ required: true }) label!: 'Hang' | 'Call';
   isActive!: boolean;
+  isDisabled: boolean = false;
 
-  constructor(private phoneSrv: PhoneService) {
+  constructor(private phoneSrv: PhoneService) {}
+
+  ngOnInit(): void {
     this.phoneSrv.getPhone().subscribe((phone) => {
       switch (this.label) {
         case 'Call':
           this.isActive = !phone.isCalling;
+          this.isDisabled = phone.phoneNumber.length < 3;
           break;
 
         case 'Hang':

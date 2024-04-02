@@ -7,10 +7,10 @@
     "start": "ng serve",
     "start:demo1": "ng serve --port 4500 --project demo1",
     "start:challenges": "ng serve --port 4600 --project challenges",
+    "start:poke": "ng serve --port 4800 --project pokemon",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --code-coverage --browsers=ChromeHeadless --project demo1",
-    "test:prod": "ng test --code-coverage --no-watch --browsers=ChromeHeadless",
     "lint": "ng lint"
   },
   "private": true,
