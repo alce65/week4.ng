@@ -8,6 +8,7 @@
         <input type="text" name="name" ngModel required minlength="3" />
       </label>
       @if (
+        ngForm.form.controls["name"] &&
         ngForm.form.controls["name"].touched &&
         ngForm.form.controls["name"].invalid
       ) {
