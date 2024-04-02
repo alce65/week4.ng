@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GentlemanComponent } from './gentleman.component';
+import { Gentleman } from '../../model/gentleman';
 
 describe('GentlemanComponent', () => {
   let component: GentlemanComponent;
@@ -8,12 +9,12 @@ describe('GentlemanComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GentlemanComponent]
-    })
-    .compileComponents();
-    
+      imports: [GentlemanComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(GentlemanComponent);
     component = fixture.componentInstance;
+    component.gent = {} as Gentleman;
     fixture.detectChanges();
   });
 

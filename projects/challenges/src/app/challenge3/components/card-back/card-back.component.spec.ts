@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CardBackComponent } from './card-back.component';
+import { Character } from '../../model/character';
 
 describe('CardBackComponent', () => {
   let component: CardBackComponent;
@@ -8,12 +9,12 @@ describe('CardBackComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CardBackComponent]
-    })
-    .compileComponents();
-    
+      imports: [CardBackComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(CardBackComponent);
     component = fixture.componentInstance;
+    component.item = {} as Character;
     fixture.detectChanges();
   });
 

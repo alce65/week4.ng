@@ -8,12 +8,12 @@ describe('KeyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [KeyComponent]
-    })
-    .compileComponents();
-    
+      imports: [KeyComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(KeyComponent);
     component = fixture.componentInstance;
+    component.label = '';
     fixture.detectChanges();
   });
 
