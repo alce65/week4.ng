@@ -9,16 +9,22 @@ import { DisplayComponent } from '../display/display.component';
   imports: [ActionComponent, DisplayComponent],
   template: `
     <isdi-display />
-    @for (label of labels; track label) {
-      <isdi-action [label]="label" />
-    }
+    <div>
+      @for (label of labels; track label) {
+        <isdi-action [label]="label" />
+      }
+    </div>
   `,
   styles: `
     :host {
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
       align-items: center;
+    }
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
   `,
 })

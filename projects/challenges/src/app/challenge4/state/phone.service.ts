@@ -25,7 +25,7 @@ export class PhoneService {
     const phone = this.phone$.value;
     if (value === '') {
       phone.phoneNumber = '';
-    } else {
+    } else if (phone.phoneNumber.length < 9) {
       phone.phoneNumber += value;
     }
     this.phone$.next(phone);

@@ -10,16 +10,20 @@ import { Subscription } from 'rxjs';
 
   // `<span class="number">{{ (dialed$ | async)!.phoneNumber }}</span>`,
 
-  template: `<span class="number">{{ dialed }}</span>`,
+  template: `<div class="number">{{ dialed }}</div>`,
   styles: `
+    :host {
+      display: block;
+      width: 100%;
+    }
     .number {
       background-color: #fff;
       color: #454545;
       padding: 5px 20px;
-      width: 150px;
+      width: 80%;
       border-radius: 30px;
       text-align: center;
-      margin: 50px 0;
+      margin: 20% auto;
       height: 31px;
     }
   `,
