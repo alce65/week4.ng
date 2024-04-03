@@ -8,12 +8,12 @@ describe('Form1Component', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Form1Component]
-    })
-    .compileComponents();
-    
+      imports: [Form1Component],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(Form1Component);
     component = fixture.componentInstance;
+    component.initialUser = {};
     fixture.detectChanges();
   });
 
