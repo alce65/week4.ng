@@ -78,7 +78,13 @@
             ],
             "styles": ["projects/demo1/src/styles.css"],
             "scripts": [],
-            "karmaConfig": "projects/demo1/karma.conf.cjs"
+            "karmaConfig": "projects/demo1/karma.conf.cjs",
+            "codeCoverageExclude": [
+              "projects/demo1/**/main.ts",
+              "projects/demo1/**/app.routes.ts",
+              "projects/demo1/**/app.config.ts",
+              "projects/demo1/**/environments/**"
+            ]
           }
         },
         "lint": {
@@ -169,7 +175,14 @@
               "projects/challenges/src/assets"
             ],
             "styles": ["projects/challenges/src/styles.css"],
-            "scripts": []
+            "scripts": [],
+            "karmaConfig": "projects/challenges/karma.conf.cjs",
+            "codeCoverageExclude": [
+              "projects/challenges/**/main.ts",
+              "projects/challenges/**/app.routes.ts",
+              "projects/challenges/**/app.config.ts",
+              "projects/challenges/**/environments/**"
+            ]
           }
         },
         "lint": {
@@ -257,7 +270,13 @@
               "projects/pokemon/src/assets"
             ],
             "styles": ["projects/pokemon/src/styles.css"],
-            "scripts": []
+            "scripts": [],
+            "codeCoverageExclude": [
+              "projects/pokemon/**/main.ts",
+              "projects/pokemon/**/app.routes.ts",
+              "projects/pokemon/**/app.config.ts",
+              "projects/pokemon/**/environments/**"
+            ]
           }
         },
         "lint": {
