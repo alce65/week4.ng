@@ -1,6 +1,10 @@
 # Editor configuration, see https://editorconfig.org
 root = true
 
+# Ignore paths
+[/coverage/**]
+generated = true
+
 [*]
 charset = utf-8
 indent_style = space
@@ -14,3 +18,27 @@ quote_type = single
 [*.md]
 max_line_length = off
 trim_trailing_whitespace = false
+
+[/dist/**]
+charset = unset
+end_of_line = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+indent_style = unset
+indent_size = unset
+
+[/coverage/**]
+charset = unset
+end_of_line = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+indent_style = unset
+indent_size = unset
+
+[/.angular/**]
+charset = unset
+end_of_line = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+indent_style = unset
+indent_size = unset
