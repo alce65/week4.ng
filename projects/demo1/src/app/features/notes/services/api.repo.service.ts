@@ -2,8 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Note } from '../../../core/models/note';
-
-const urlBase = 'http://localhost:3000';
+import { urlBase } from '../../../app.config';
 
 @Injectable({
   providedIn: 'root',
