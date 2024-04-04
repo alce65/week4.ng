@@ -11,7 +11,7 @@ describe('DisplayComponent', () => {
       imports: [DisplayComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(DisplayComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
