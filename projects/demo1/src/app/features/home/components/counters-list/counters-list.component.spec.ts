@@ -11,7 +11,7 @@ describe('CountersListComponent', () => {
       imports: [CountersListComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(CountersListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
