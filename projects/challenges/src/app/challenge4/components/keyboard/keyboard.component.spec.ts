@@ -11,7 +11,7 @@ describe('KeyboardComponent', () => {
       imports: [KeyboardComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(KeyboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

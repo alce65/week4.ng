@@ -169,7 +169,7 @@ hay que instalarla como dependencia (de desarrollo) del proyecto
 Además es necesario que el formateador de HTML definido en los settings de VSC sea Prettier
 
 ```json
- "[html]": {
+  "[html]": {
     // "editor.defaultFormatter": "vscode.html-language-features",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "files.insertFinalNewline": true
@@ -243,14 +243,14 @@ En projects/demo/src/ están los ficheros responsables de que exista la aplicaci
 
 ```schema
 index.html + styles.scss
-   (definido en angular.json)
+  (definido en angular.json)
           ┕━━━━━━━> main.ts
                     (bootstrap with)
                       ┝━━━━━━━>  app.config.ts
                       ┃                ┕━━━━━━━> rutas desde app.routes.ts
                       ┕━━━━━━━> app.component.ts
-                                       ┝━━━━━━━━> app.component.html
-                                       ┕━━━━━━━━> app.component.scss
+                                      ┝━━━━━━━━> app.component.html
+                                      ┕━━━━━━━━> app.component.scss
 ```
 
 #### Revisión de las operaciones básicas con el CLI (1): scaffolding y server
@@ -413,9 +413,9 @@ SUMMARY:
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
 -----------------------|---------|----------|---------|---------|-------------------
 All files              |     100 |      100 |     100 |     100 |
- app                   |     100 |      100 |     100 |     100 |
+  app                  |     100 |      100 |     100 |     100 |
   app.component.ts     |     100 |      100 |     100 |     100 |
- app/components/sample |     100 |      100 |     100 |     100 |
+  app/components/sample|     100 |      100 |     100 |     100 |
   sample.component.ts  |     100 |      100 |     100 |     100 |
 -----------------------|---------|----------|---------|---------|-------------------
 ```
@@ -635,8 +635,8 @@ Añadimos en el componente menu una propiedad con el array de opciones del menu
 En el template iteramos sobre esa propiedad para construir el menu
 
 ```html
- @for (option of options; track $index) {
-  <li><a [routerLink]="option.path" routerLinkActive="link-active">{{option.label}}</a></li>
+  @for (option of options; track $index) {
+    <li><a [routerLink]="option.path" routerLinkActive="link-active">{{option.label}}</a></li>
   }
 ```
 
@@ -786,11 +786,11 @@ Añadimos un input de HTML y vemos como vincularlo a una propiedad,
 de forma similar a lo que hacemos en los formularios controlados de react
 
 ```html
- <input type="text" placeholder="Dime tu nombre" [value]="user" (input)="updateInput($event)">
+  <input type="text" placeholder="Dime tu nombre" [value]="user" (input)="updateInput($event)">
 ```
 
 ```ts
- updateInput(event: Event) {
+  updateInput(event: Event) {
     this.user = (event.target! as HTMLInputElement).value as string;
   }
 ```
@@ -951,7 +951,7 @@ El único caso novedoso es el select, que a diferencia del input, tiene asociado
   it('should use the style values selected', () => {
     component.availableFonts = new Set(['Arial']);
     fixture.detectChanges();
-     const selectElement: HTMLSelectElement = debugElement.query(
+    const selectElement: HTMLSelectElement = debugElement.query(
       By.css('.styles select')
     ).nativeElement;
     const pElement: HTMLParagraphElement = debugElement.query(
@@ -1063,8 +1063,8 @@ Building entry point 'core'
 
 ------------------------------------------------------------------------------
 Built Angular Package
- - from: D:\Desarrollo\Skylab.base\trying\ng.17.taller\projects\core
- - to:   D:\Desarrollo\Skylab.base\trying\ng.17.taller\dist\core
+  - from: D:\Desarrollo\Skylab.base\trying\ng.17.taller\projects\core
+  - to:   D:\Desarrollo\Skylab.base\trying\ng.17.taller\dist\core
 ------------------------------------------------------------------------------
 ```
 
@@ -1257,23 +1257,23 @@ Sin apenas más cambios este es nuestro resultado
 File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
 -------------------------|---------|----------|---------|---------|-------------------
 All files                |   89.28 |      100 |      70 |      85 |
- app                     |     100 |      100 |     100 |     100 |
-  app.component.ts       |     100 |      100 |     100 |     100 |
- app/components/counter  |      75 |      100 |      50 |   66.66 |
-  counter.component.ts   |      75 |      100 |      50 |   66.66 | 17
- app/components/greeting |   71.42 |      100 |   33.33 |   66.66 |
-  greeting.component.ts  |   71.42 |      100 |   33.33 |   66.66 | 17-21
- app/components/menu     |     100 |      100 |     100 |     100 |
-  menu.component.ts      |     100 |      100 |     100 |     100 |
- app/components/message  |     100 |      100 |     100 |     100 |
-  message.component.ts   |     100 |      100 |     100 |     100 |
- app/components/sample   |     100 |      100 |     100 |     100 |
-  sample.component.ts    |     100 |      100 |     100 |     100 |
- app/pages/about         |     100 |      100 |     100 |     100 |
-  about.component.ts     |     100 |      100 |     100 |     100 |
- app/pages/home          |     100 |      100 |     100 |     100 |
-  home.component.ts      |     100 |      100 |     100 |     100 |
--------------------------|---------|----------|---------|---------|-------------------
+  app                    |     100 |      100 |     100 |     100 |
+    app.component.ts      |     100 |      100 |     100 |     100 |
+  app/components/counter  |      75 |      100 |      50 |   66.66 |
+    counter.component.ts  |      75 |      100 |      50 |   66.66 | 17
+  app/components/greeting |   71.42 |      100 |   33.33 |   66.66 |
+    greeting.component.ts |   71.42 |      100 |   33.33 |   66.66 | 17-21
+  app/components/menu     |     100 |      100 |     100 |     100 |
+    menu.component.ts     |     100 |      100 |     100 |     100 |
+  app/components/message  |     100 |      100 |     100 |     100 |
+    message.component.ts  |     100 |      100 |     100 |     100 |
+  app/components/sample   |     100 |      100 |     100 |     100 |
+    sample.component.ts   |     100 |      100 |     100 |     100 |
+  app/pages/about         |     100 |      100 |     100 |     100 |
+    about.component.ts    |     100 |      100 |     100 |     100 |
+  app/pages/home          |     100 |      100 |     100 |     100 |
+    home.component.ts     |     100 |      100 |     100 |     100 |
+--------------------------|---------|----------|---------|---------|-------------------
 ```
 
 Hay que tener en cuenta que son solo los test de humo que auto-completa Angular y que,
@@ -1317,22 +1317,22 @@ Los resultados de partida parecen aún más contundentes
 
 ```shell
 √ 7 tests completed
------------------------|---------|----------|---------|---------|-------------------
-File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
------------------------|---------|----------|---------|---------|-------------------
-All files              |     100 |      100 |     100 |     100 |
- lib                   |     100 |      100 |     100 |     100 |
-  core.component.ts    |     100 |      100 |     100 |     100 |
-  core.service.ts      |     100 |      100 |     100 |     100 |
- lib/components/footer |     100 |      100 |     100 |     100 |
-  footer.component.ts  |     100 |      100 |     100 |     100 |
- lib/components/header |     100 |      100 |     100 |     100 |
-  header.component.ts  |     100 |      100 |     100 |     100 |
- lib/components/layout |     100 |      100 |     100 |     100 |
-  layout.component.ts  |     100 |      100 |     100 |     100 |
- lib/components/logo   |     100 |      100 |     100 |     100 |
-  logo.component.ts    |     100 |      100 |     100 |     100 |
------------------------|---------|----------|---------|---------|-------------------
+------------------------|---------|----------|---------|---------|-------------------
+File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+------------------------|---------|----------|---------|---------|-------------------
+All files               |     100 |      100 |     100 |     100 |
+  lib                   |     100 |      100 |     100 |     100 |
+    core.component.ts   |     100 |      100 |     100 |     100 |
+    core.service.ts     |     100 |      100 |     100 |     100 |
+  lib/components/footer |     100 |      100 |     100 |     100 |
+    footer.component.ts |     100 |      100 |     100 |     100 |
+  lib/components/header |     100 |      100 |     100 |     100 |
+    header.component.ts |     100 |      100 |     100 |     100 |
+  lib/components/layout |     100 |      100 |     100 |     100 |
+    layout.component.ts |     100 |      100 |     100 |     100 |
+  lib/components/logo   |     100 |      100 |     100 |     100 |
+    logo.component.ts   |     100 |      100 |     100 |     100 |
+------------------------|---------|----------|---------|---------|-------------------
 ```
 
 #### _Test del componente Message_
@@ -1379,7 +1379,7 @@ El debugElement dispone para es del método triggerEventHandler() para disparar 
 Después de usarlo es importante lanzar **fixture.detectChanges()** para que la vista refleje los cambios en el componente. El proceso de detección del cambio automático en los componentes de Angular no lo es en el entorno de test, por lo que hay que ejecutar el correspondiente método de la fixture
 
 ```ts
- describe('When we use the buttons', () => {
+  describe('When we use the buttons', () => {
     let spanElement: HTMLSpanElement;
     let buttonDebugElements: DebugElement[];
     beforeEach(() => {
@@ -1864,9 +1864,9 @@ Para ello creamos un Spy de jest para el método next de la propiedad eventEmitt
 y comprobamos que el método ha sido llamado con el valor correspondiente en cada caso
 
 ```ts
-   spyOn(component.countEvent, 'next');
-   ...
-   // tras el click en un botón
+  spyOn(component.countEvent, 'next');
+  ...
+  // tras el click en un botón
     expect(component.countEvent.next).toHaveBeenCalledWith(1);
     ---
     // tras el click en el otro botón
@@ -1933,7 +1933,7 @@ export class LayoutComponent {
 Los valores llegan finalmente al componente, e.g. Header
 
 ```ts
- @Input() title!: string;
+  @Input() title!: string;
 
   ngOnInit(): void {
     this.title = this.title ?? 'Angular Workshop';
@@ -2098,7 +2098,7 @@ usando las propiedades @Input en los puntos adecuados
     [attr.height]="height"
     [attr.width]="width"
     <path
-       ...
+      ...
         [style]="style"
       />
     ...
@@ -2389,7 +2389,7 @@ El valor por defecto se establece en 100%, que es el que aplica el ejemplo de An
 En el SVG se asigna la propiedad del componente al atributo del SVG
 
 ```svg
- [attr.width]="width"
+  [attr.width]="width"
 ```
 
 #### Iconos de redes sociales
@@ -2407,7 +2407,7 @@ Los valores admitidos son
 de los que existe un array con los iconos SVG, que se filtra manteniendo solo aquellos de los que se ha recibido enlace en el @Input
 
 ```ts
- @Input({required: true }) socialLinks: { [key: string]: string } = {};
+  @Input({required: true }) socialLinks: { [key: string]: string } = {};
   socials: { [key: string]: string | undefined }[] = [];
   baseSocials = [...]
 
@@ -2528,7 +2528,7 @@ Sus responsabilidades son
 - consume también el componente noteAdd definiendo el manejador del evento **addEvent**
 
 ```ts
- ngOnInit(): void {
+  ngOnInit(): void {
     getNotes().then((notes) => (this.notes = notes));
   }
 
@@ -2705,7 +2705,7 @@ Para este caso concreto puede suceder que los test fallen aleatoriamente por el 
 Puede modificarse este comportamiento en el fichero karma.conf.js
 
 ```js
- client: {
+  client: {
     jasmine: {
       // you can add configuration options for Jasmine here
       // the possible options are listed at https://jasmine.github.io/api/edge/Configuration.html
@@ -3183,7 +3183,7 @@ En cuanto a los métodos del repo, son similares a los de MemoryRepo, pero añad
 En el caso del getAll, se utiliza el método get, y si no hay datos, el set
 
 ```ts
- async getAll(): Promise<Course[]> {
+  async getAll(): Promise<Course[]> {
     let courses = this.ls.get();
     console.log(courses);
     if (!courses) {

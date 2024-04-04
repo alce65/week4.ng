@@ -11,7 +11,7 @@ describe('ButtonAllComponent', () => {
       imports: [ButtonAllComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(ButtonAllComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
