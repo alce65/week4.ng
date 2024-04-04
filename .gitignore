@@ -43,3 +43,6 @@ Thumbs.db
 
 #Nx cache
 .nx/cache
+
+# Local Netlify folder
+.netlify

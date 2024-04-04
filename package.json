@@ -9,6 +9,7 @@
     "start:challenges": "ng serve --port 4600 --project challenges",
     "start:poke": "ng serve --port 4800 --project pokemon",
     "build": "ng build",
+    "build:demo1": "ng build --project demo1",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --code-coverage --browsers=ChromeHeadless --project demo1",
     "test:ch": "ng test --code-coverage --browsers=ChromeHeadless --project challenges",
