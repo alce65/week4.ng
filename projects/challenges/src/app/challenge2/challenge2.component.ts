@@ -8,10 +8,12 @@ import { MainContainerComponent } from '../shared/main-container/main-container.
   imports: [AppFormsComponent, MainContainerComponent],
   template: `
     <isdi-main-container>
-      <h2>Challenge2: Formulario</h2>
+      <h2>{{ title }}</h2>
       <isdi-app-forms />
     </isdi-main-container>
   `,
   styles: ``,
 })
-export default class Challenge2Component {}
+export default class Challenge2Component {
+  title = 'Challenge2: Formulario';
+}
