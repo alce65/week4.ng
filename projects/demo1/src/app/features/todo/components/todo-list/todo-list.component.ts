@@ -1,6 +1,6 @@
 import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { Task } from '../../../../core/models/task';
-import { getTasks } from '../../../../core/data';
+import { repo } from '../../../../core/data';
 import { TodoCardComponent } from '../todo-card/todo-card.component';
 import { TodoAddComponent } from '../todo-add/todo-add.component';
 import { StorageService } from '../../../../core/services/storage.service';
@@ -47,7 +47,7 @@ export class TodoListComponent {
   onLoad() {
     this.tasks = this.storageSrv.getStorage();
     if (this.tasks.length === 0) {
-      getTasks().then((tasks) => {
+      repo.getTasks().then((tasks) => {
         this.tasks = tasks;
         this.storageSrv.setStorage(this.tasks);
       });
