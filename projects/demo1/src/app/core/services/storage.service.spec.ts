@@ -18,15 +18,32 @@ describe('StorageService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should return an array', () => {
-    spyOn(localStorage, 'getItem').and.returnValue('[1]');
-    expect(service.getStorage()).toEqual([1]);
-    expect(localStorage.getItem).toHaveBeenCalled();
+  describe('When we use the method getStorage', () => {
+    it('should call localStorage and return an array and', () => {
+      spyOn(localStorage, 'getItem').and.returnValue('[1]');
+      expect(service.getStorage()).toEqual([1]);
+      expect(localStorage.getItem).toHaveBeenCalled();
+    });
+
+    it('should return an empty array if there is no data', () => {
+      spyOn(localStorage, 'getItem').and.returnValue(null);
+      expect(service.getStorage()).toEqual([]);
+    });
   });
 
-  it('should set an array', () => {
-    spyOn(localStorage, 'setItem');
-    service.setStorage([1, 2, 3]);
-    expect(localStorage.setItem).toHaveBeenCalled();
+  describe('When we use the method setStorage', () => {
+    it('should call localStorage for set de storage', () => {
+      spyOn(localStorage, 'setItem');
+      service.setStorage([1, 2, 3]);
+      expect(localStorage.setItem).toHaveBeenCalled();
+    });
+  });
+
+  describe('When we use the method removeStorage', () => {
+    it('should call localStorage for remove the storage', () => {
+      spyOn(localStorage, 'removeItem');
+      service.removeStorage();
+      expect(localStorage.removeItem).toHaveBeenCalled();
+    });
   });
 });

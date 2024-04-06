@@ -21,4 +21,22 @@ describe('TodoCardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('When user complete the form and use the method sendUpdate', () => {
+    it('should emit the event updateEvent', () => {
+      spyOn(component.updateEvent, 'emit');
+      component.sendUpdate();
+      expect(component.updateEvent.emit).toHaveBeenCalledWith(component.item);
+    });
+  });
+
+  describe('When user complete the form and use the method sendDelete', () => {
+    it('should emit the event deleteEvent', () => {
+      spyOn(component.deleteEvent, 'emit');
+      component.sendDelete();
+      expect(component.deleteEvent.emit).toHaveBeenCalledWith(
+        component.item.id,
+      );
+    });
+  });
 });

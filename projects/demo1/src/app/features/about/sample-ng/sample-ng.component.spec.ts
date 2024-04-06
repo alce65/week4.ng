@@ -11,7 +11,7 @@ describe('SampleNgComponent', () => {
       imports: [SampleNgComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(SampleNgComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
