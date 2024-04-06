@@ -39,7 +39,7 @@ describe('TodoListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  fit('onLoad should set tasks', () => {
+  it('onLoad should set tasks', () => {
     const mockTask = { id: '1' } as Task;
     fixture.debugElement
       .query(By.css('isdi-todo-card'))
@@ -48,5 +48,38 @@ describe('TodoListComponent', () => {
     // component.onUpdate(mockTask);
     expect(component.storageSrv.getStorage).toHaveBeenCalled();
     expect(mockSrv.getStorage).toHaveBeenCalled();
+  });
+
+  describe('When child element emit addEvent', () => {
+    it('should call onAdd', () => {
+      spyOn(component, 'onAdd').and.callThrough();
+      fixture.debugElement
+        .query(By.css('isdi-todo-add'))
+        .triggerEventHandler('addEvent', { id: '1' });
+      expect(component.onAdd).toHaveBeenCalled();
+      expect(mockSrv.setStorage).toHaveBeenCalled();
+    });
+  });
+
+  describe('When child element emit deleteEvent', () => {
+    it('should call onDelete', () => {
+      spyOn(component, 'onDelete').and.callThrough();
+      fixture.debugElement
+        .query(By.css('isdi-todo-card'))
+        .triggerEventHandler('deleteEvent', '1');
+      expect(component.onDelete).toHaveBeenCalled();
+      expect(mockSrv.setStorage).toHaveBeenCalled();
+    });
+  });
+
+  describe('When child element emit updateEvent', () => {
+    it('should call onUpdate', () => {
+      spyOn(component, 'onUpdate').and.callThrough();
+      fixture.debugElement
+        .query(By.css('isdi-todo-card'))
+        .triggerEventHandler('updateEvent', { id: '1' });
+      expect(component.onUpdate).toHaveBeenCalled();
+      expect(mockSrv.setStorage).toHaveBeenCalled();
+    });
   });
 });
