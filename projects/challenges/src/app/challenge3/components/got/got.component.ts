@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Character } from '../../model/character';
 import { CardComponent } from '../card/card.component';
-import { getCharacters } from '../../data';
+import { repo } from '../../data';
 import { TalkComponent } from '../talk/talk.component';
 import { CardBackComponent } from '../card-back/card-back.component';
 
@@ -52,7 +52,7 @@ export class GotComponent implements OnInit {
   currentCharacter: Character | null = null;
 
   ngOnInit(): void {
-    getCharacters().then((characters) => {
+    repo.getCharacters().then((characters) => {
       this.characters = characters;
     });
   }
@@ -65,6 +65,7 @@ export class GotComponent implements OnInit {
     }, 2000);
   }
   onKill(character: Character) {
+    console.log('Kill', character);
     this.characters = this.characters.map((c) =>
       c.name === character.name ? { ...c, isAlive: false } : c,
     );
