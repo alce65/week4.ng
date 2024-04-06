@@ -271,6 +271,7 @@
             ],
             "styles": ["projects/pokemon/src/styles.css"],
             "scripts": [],
+            "karmaConfig": "projects/pokemon/karma.conf.cjs",
             "codeCoverageExclude": [
               "projects/pokemon/**/main.ts",
               "projects/pokemon/**/app.routes.ts",

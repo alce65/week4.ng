@@ -14,6 +14,7 @@
     "test": "ng test --code-coverage --browsers=ChromeHeadless --project demo1",
     "test:ch": "ng test --code-coverage --browsers=ChromeHeadless --project challenges",
     "test:chk": "ng test --code-coverage --project challenges",
+    "test:poke": "ng test --code-coverage --browsers=ChromeHeadless --project pokemon",
     "lint": "ng lint"
   },
   "private": true,

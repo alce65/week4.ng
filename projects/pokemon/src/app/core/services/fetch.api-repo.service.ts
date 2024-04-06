@@ -49,6 +49,7 @@ export class FetchApiRepoService {
       previousUrl: data.previous,
       pokeData: pokemons,
       fullPokeData: [],
+      favorites: [],
     };
 
     console.log('Repo Result', result);
