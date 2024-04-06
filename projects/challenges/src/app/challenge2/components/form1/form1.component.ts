@@ -86,7 +86,7 @@ export class Form1Component implements OnInit {
 
   onSubmit() {
     const userData: PersonalData = this.formGroup.value;
-    console.log(userData);
+    console.log({ userData });
     this.changeStep.emit({ step: 2, userData });
   }
 }

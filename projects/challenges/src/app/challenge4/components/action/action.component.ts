@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { PhoneService } from '../../state/phone.service';
 
 @Component({
@@ -50,8 +50,7 @@ export class ActionComponent implements OnInit {
   @Input({ required: true }) label!: 'Hang' | 'Call';
   isActive!: boolean;
   isDisabled: boolean = false;
-
-  constructor(private phoneSrv: PhoneService) {}
+  private phoneSrv = inject(PhoneService);
 
   ngOnInit(): void {
     this.phoneSrv.getPhone().subscribe((phone) => {

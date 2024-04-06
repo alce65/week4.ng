@@ -1,6 +1,6 @@
 import { Character } from './model/character';
 
-export const getCharacters = async (): Promise<Character[]> => [
+const getCharacters = async (): Promise<Character[]> => [
   {
     isAlive: true,
     message: "You're all to die!",
@@ -68,3 +68,5 @@ export const getCharacters = async (): Promise<Character[]> => [
     type: 'squire',
   },
 ];
+
+export const repo = { getCharacters };
