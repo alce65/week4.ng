@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Note } from '../../../core/models/note';
-import { getNotes } from '../../../core/data';
+import { repo } from '../../../core/data';
 import { StorageService } from '../../../core/services/storage.service';
 
 type NotesState = {
@@ -28,7 +28,7 @@ export class NotesStoreService {
   loadNotes(): void {
     const notes = this.storageSrv.getStorage();
     if (notes.length === 0) {
-      getNotes().then((notes) => {
+      repo.getNotes().then((notes) => {
         this.storageSrv.setStorage(notes);
       });
     }
