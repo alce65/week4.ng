@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Inject, Injectable } from '@angular/core';
+import { BehaviorSubject, of } from 'rxjs';
 import { StateStructure } from '../types/state';
 import { ApiRepoService } from '../services/api-repo.service';
 import { Pokemon } from '../models/pokemon';
+import { API_URLS, ApiUrls } from '../../app.config';
 
-const initialState: StateStructure = {
+export const initialState: StateStructure = {
   count: 0,
   nextUrl: '',
   previousUrl: '',
@@ -22,6 +23,7 @@ export class PokeStateService {
   constructor(
     // private repo: FetchApiRepoService
     private repo: ApiRepoService,
+    @Inject(API_URLS) private urls: ApiUrls,
   ) {
     this.state$ = new BehaviorSubject<StateStructure>(initialState);
 
@@ -82,6 +84,10 @@ export class PokeStateService {
     const pokeData = this.state$.value.fullPokeData.find(
       (item) => Number(item.id) === Number(id),
     );
-    return pokeData;
+    if (pokeData) return of(pokeData);
+
+    const url = this.urls.pokeUrl + `/pokemon/${id}/`;
+    console.log(url);
+    return this.repo.getPokemonDetails(url);
   }
 }

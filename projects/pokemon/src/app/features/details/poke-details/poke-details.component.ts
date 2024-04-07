@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 import { Pokemon, PokemonDetails } from '../../../core/models/pokemon';
 import { PokeStateService } from '../../../core/store/poke-state.service';
-import { ApiRepoService } from '../../../core/services/api-repo.service';
 
 @Component({
   selector: 'isdi-poke-details',
@@ -28,26 +27,17 @@ import { ApiRepoService } from '../../../core/services/api-repo.service';
 })
 export class PokeDetailsComponent implements OnInit {
   private stateSrv = inject(PokeStateService);
-  private repo = inject(ApiRepoService);
   @Input({ required: true }) pokeId!: Pokemon['id'];
   @ViewChild('detailsList', { static: true })
   detailsList!: ElementRef<HTMLUListElement>;
   pokeData!: PokemonDetails | undefined;
 
   ngOnInit() {
-    this.pokeData = this.stateSrv.getPokeDetails(this.pokeId);
-
-    if (this.pokeData) {
+    this.stateSrv.getPokeDetails(this.pokeId).subscribe((data) => {
+      this.pokeData = data;
       const template = this.showPokeData(this.pokeData);
       this.detailsList.nativeElement.innerHTML = template;
-    } else {
-      const url = `
-      https://pokeapi.co/api/v2/pokemon/${this.pokeId}/`;
-      console.log(url);
-      this.repo.getPokemonDetails(url).subscribe((data) => {
-        this.detailsList.nativeElement.innerHTML = this.showPokeData(data);
-      });
-    }
+    });
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

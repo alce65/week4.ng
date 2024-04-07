@@ -47,7 +47,7 @@ import { MenuComponent } from './core/components/menu/menu.component';
   `,
 })
 export class AppComponent {
-  title = 'pokemon';
+  title = 'Pokemon';
   menuOptions: MenuOption[] = [];
 
   constructor() {

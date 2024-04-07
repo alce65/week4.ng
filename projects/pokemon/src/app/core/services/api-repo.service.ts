@@ -25,7 +25,7 @@ export class ApiRepoService {
     return `${this.urls.pokeUrl}/pokemon?limit=${limit}&offset=${offset}`;
   }
 
-  getAllPokemons(url?: string) {
+  getAllPokemons(url?: string): Observable<StateStructure> {
     return this.http.get<PokemonResponse>(url || this.pokeUrl).pipe(
       mergeMap((data) => {
         console.log(data);
@@ -86,7 +86,7 @@ export class ApiRepoService {
     return this.http.get<PokemonDetails>(url);
   }
 
-  getFavoritePokemons() {
+  getFavoritePokemons(): Observable<Pokemon[]> {
     return this.http.get<Pokemon[]>(this.privateUrl).pipe(
       map((data) => data.map((data) => ({ ...data, id: +data.id }))),
       catchError((err: HttpErrorResponse) => {
