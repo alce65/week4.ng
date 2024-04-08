@@ -8,10 +8,9 @@ describe('OnPushComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OnPushComponent]
-    })
-    .compileComponents();
-    
+      imports: [OnPushComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(OnPushComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
