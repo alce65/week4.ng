@@ -12,7 +12,15 @@ describe('PokeDetailsComponent', () => {
   let fixture: ComponentFixture<PokeDetailsComponent>;
   const mockStateSrv = jasmine.createSpyObj('PokeStateService', {
     getState: of(initialState),
-    getPokeDetails: of({}),
+    getPokeDetails: of({
+      id: 1,
+      name: 'bulbasaur',
+      sprites: {
+        front_default: 'https://pokeapi.co/media/sprites/pokemon/1.png',
+        back_default: 'https://pokeapi.co/media/sprites/pokemon/back/1.png',
+      },
+      types: [],
+    }),
   });
 
   beforeEach(async () => {

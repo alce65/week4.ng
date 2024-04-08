@@ -6,12 +6,15 @@ import {
   PokeStateService,
   initialState,
 } from '../../../core/store/poke-state.service';
+import { By } from '@angular/platform-browser';
 
 describe('PokeListComponent', () => {
   let component: PokeListComponent;
   let fixture: ComponentFixture<PokeListComponent>;
   const mockStateSrv = jasmine.createSpyObj('PokeStateService', {
-    getState: of(initialState),
+    getState: of({ ...initialState, nextUrl: 'http://?l=1&c=2' }),
+    goNext: undefined,
+    goPrevious: undefined,
   });
 
   beforeEach(async () => {
@@ -39,5 +42,18 @@ describe('PokeListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('When child component emit pageEvent event', () => {
+    it('should call the correct pagination method in the service', () => {
+      fixture.debugElement
+        .query(By.css('isdi-pagination'))
+        .triggerEventHandler('pageEvent', 'next');
+      expect(mockStateSrv.goNext).toHaveBeenCalled();
+      fixture.debugElement
+        .query(By.css('isdi-pagination'))
+        .triggerEventHandler('pageEvent', 'prev');
+      expect(mockStateSrv.goPrevious).toHaveBeenCalled();
+    });
   });
 });

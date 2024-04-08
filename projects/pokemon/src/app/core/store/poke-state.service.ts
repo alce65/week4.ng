@@ -18,11 +18,11 @@ export const initialState: StateStructure = {
   providedIn: 'root',
 })
 export class PokeStateService {
-  state$: BehaviorSubject<StateStructure>;
+  private state$: BehaviorSubject<StateStructure>;
 
   constructor(
     // private repo: FetchApiRepoService
-    private repo: ApiRepoService,
+    public repo: ApiRepoService,
     @Inject(API_URLS) private urls: ApiUrls,
   ) {
     this.state$ = new BehaviorSubject<StateStructure>(initialState);
@@ -81,9 +81,11 @@ export class PokeStateService {
   }
 
   getPokeDetails(id: Pokemon['id']) {
+    console.log('POKEDATA');
     const pokeData = this.state$.value.fullPokeData.find(
       (item) => Number(item.id) === Number(id),
     );
+    console.log('POKEDATA', pokeData);
     if (pokeData) return of(pokeData);
 
     const url = this.urls.pokeUrl + `/pokemon/${id}/`;

@@ -6,18 +6,26 @@ import {
   PokeStateService,
   initialState,
 } from '../../../core/store/poke-state.service';
+import { provideRouter } from '@angular/router';
 
 describe('FavListComponent', () => {
   let component: FavListComponent;
   let fixture: ComponentFixture<FavListComponent>;
   const mockStateSrv = jasmine.createSpyObj('PokeStateService', {
-    getState: of(initialState),
+    getState: of({
+      ...initialState,
+      favorites: [
+        { id: 1, sprites: {} },
+        { id: 2, sprites: {} },
+      ],
+    }),
   });
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [FavListComponent],
       providers: [
+        provideRouter([]),
         {
           provide: API_URLS,
           useValue: {
