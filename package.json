@@ -16,6 +16,8 @@
     "test": "ng test --code-coverage --browsers=ChromeHeadless --project demo1",
     "test:ch": "ng test --code-coverage --browsers=ChromeHeadless --project challenges",
     "test:chk": "ng test --code-coverage --project challenges",
+    "test:signal": "ng test --code-coverage --project signals",
+    "test:mat": "ng test --code-coverage --browsers=ChromeHeadless --project material",
     "lint": "ng lint"
   },
   "private": true,
