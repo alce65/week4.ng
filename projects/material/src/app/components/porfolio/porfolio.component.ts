@@ -47,6 +47,10 @@ export class PorfolioComponent {
       label: 'Contacto',
       path: 'contact',
     },
+    {
+      label: 'Home',
+      path: '/home',
+    },
   ];
 
   isHandset$: Observable<boolean> = this.breakpointObserver

@@ -4,13 +4,12 @@ import { Component } from '@angular/core';
   selector: 'isdi-personal',
   standalone: true,
   imports: [],
-  template: `
-    <p>
-      personal works!
-    </p>
+  template: ` <p>personal works!</p> `,
+  styles: `
+    :host {
+      display: block;
+      padding: 1rem 2rem;
+    }
   `,
-  styles: ``
 })
-export class PersonalComponent {
-
-}
+export class PersonalComponent {}

@@ -2,6 +2,7 @@ import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PorfolioComponent } from './porfolio.component';
+import { provideRouter } from '@angular/router';
 
 describe('PorfolioComponent', () => {
   let component: PorfolioComponent;
@@ -9,7 +10,8 @@ describe('PorfolioComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [NoopAnimationsModule]
+      imports: [NoopAnimationsModule],
+      providers: [provideRouter([])],
     }).compileComponents();
   }));
 

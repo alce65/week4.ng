@@ -4,13 +4,12 @@ import { Component } from '@angular/core';
   selector: 'isdi-learning',
   standalone: true,
   imports: [],
-  template: `
-    <p>
-      learning works!
-    </p>
+  template: ` <p>learning works!</p> `,
+  styles: `
+    :host {
+      display: block;
+      padding: 1rem 2rem;
+    }
   `,
-  styles: ``
 })
-export class LearningComponent {
-
-}
+export class LearningComponent {}
