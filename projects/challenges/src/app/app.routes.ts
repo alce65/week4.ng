@@ -23,5 +23,10 @@ export const routes: Routes = [
     title: 'Challenge 4',
     loadComponent: () => import('./challenge4/challenge4.component'),
   },
+  {
+    path: 'challenge6',
+    title: 'Challenge 6',
+    loadComponent: () => import('./challenge6/challenge6.component'),
+  },
   { path: '**', redirectTo: 'challenge1' },
 ];
