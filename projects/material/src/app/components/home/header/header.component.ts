@@ -8,10 +8,15 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [MatToolbarModule, MatIconModule],
   template: `
     <mat-toolbar>
-      <mat-toolbar-row> </mat-toolbar-row>
+      <mat-toolbar-row class="header">
+        <h1>
+          {{ title }}
+        </h1>
+        <ng-content></ng-content>
+      </mat-toolbar-row>
       <mat-toolbar-row>
-        <span>Second Line</span>
-        <span class="example-spacer"></span>
+        <span>Samples of use of Angular Material</span>
+        <span class="spacer"></span>
         <mat-icon
           class="example-icon"
           aria-hidden="false"
@@ -25,6 +30,14 @@ import { MatIconModule } from '@angular/material/icon';
     mat-toolbar {
       padding: 1rem;
     }
+    .header {
+      justify-content: space-between;
+    }
+    .spacer {
+      flex: 1 1 auto;
+    }
   `,
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  title = 'Learning Angular Material';
+}
