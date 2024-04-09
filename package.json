@@ -8,6 +8,7 @@
     "start:demo1": "ng serve --port 4500 --project demo1",
     "start:challenges": "ng serve --port 4600 --project challenges",
     "start:poke": "ng serve --port 4800 --project pokemon",
+    "start:signal": "ng serve --port 4900 --project signals",
     "build": "ng build",
     "build:demo1": "ng build --project demo1",
     "watch": "ng build --watch --configuration development",
