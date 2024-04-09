@@ -18,6 +18,7 @@
     "test:chk": "ng test --code-coverage --project challenges",
     "test:signal": "ng test --code-coverage --project signals",
     "test:mat": "ng test --code-coverage --browsers=ChromeHeadless --project material",
+    "test:poke": "ng test --code-coverage --browsers=ChromeHeadless --project pokemon",
     "lint": "ng lint"
   },
   "private": true,
